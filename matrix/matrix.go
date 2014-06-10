@@ -7,7 +7,7 @@ type Matrix struct {
 	Cols [][]int
 }
 
-func NewMatrix(s int) *Matrix {
+func NewMatrix(s int) Matrix {
 	m := Matrix{
 		M:    make([]interface{}, s*s),
 		Size: s,
@@ -23,11 +23,10 @@ func NewMatrix(s int) *Matrix {
 		for j := 0; j < s; j++ {
 			m.Rows[i][j] = r
 			r++
-			m.Cols[i][j] = c
-			c += s
+			m.Cols[i][j] = (j * s) + c
 		}
-		c = s + i
+		c++
 	}
 
-	return &m
+	return m
 }
