@@ -1,4 +1,4 @@
-package matrix
+package math
 
 type Matrix struct {
 	M    []interface{}
