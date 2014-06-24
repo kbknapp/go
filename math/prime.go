@@ -23,12 +23,12 @@ func filterPrimes(in <-chan int, out chan<- int, prime int) {
 func NPrimes(n int) []int {
 	s := make([]int, n)
 	ch := make(chan int) // Create a new channel.
-	go Generate(ch)      // Launch Generate goroutine.
+	go generate(ch)      // Launch Generate goroutine.
 	for i := 0; i < n; i++ {
 		prime := <-ch
 		s[i] = prime
 		ch1 := make(chan int)
-		go Filter(ch, ch1, prime)
+		go filterPrimes(ch, ch1, prime)
 		ch = ch1
 	}
 
