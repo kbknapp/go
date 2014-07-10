@@ -1,7 +1,7 @@
 package math
 
 type Matrix struct {
-	M    []interface{}
+	M    []int
 	Size int
 	Rows [][]int
 	Cols [][]int
@@ -9,7 +9,7 @@ type Matrix struct {
 
 func NewMatrix(s int) Matrix {
 	m := Matrix{
-		M:    make([]interface{}, s*s),
+		M:    make([]int, s*s),
 		Size: s,
 		Rows: make([][]int, s),
 		Cols: make([][]int, s),
